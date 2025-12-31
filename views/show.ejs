@@ -1,18 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Post in Detail</title>
+<%- include("partials/header", { title: "Post Details" }) %>
 
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <h2>Here is your post in detail</h2>
-    <p>Post id: <%= post.id %></p>
-    <div class="post">
-      <h3 class="user">@<%=post.username%></h3>
-      <h4><%=post.content %></h4>
-    </div>
-  </body>
-</html>
+<div class="bg-white p-6 rounded-lg shadow-sm">
+  <div class="mb-4">
+    <span class="text-sm text-gray-500">Post ID:</span>
+    <span class="text-sm text-gray-700"><%= post.id %></span>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-900 mb-2">
+    @<%= post.username %>
+  </h3>
+
+  <p class="text-gray-700 leading-relaxed"><%= post.content %></p>
+
+  <div class="flex items-center gap-4 mt-6 text-sm">
+    <a
+      href="/posts"
+      class="px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-100 transition"
+    >
+      ← Back
+    </a>
+
+    <a
+      href="/posts/<%= post.id %>/edit"
+      class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
+    >
+      Edit
+    </a>
+
+    <form
+      method="POST"
+      action="/posts/<%= post.id %>?_method=DELETE"
+      onsubmit="return confirm('Delete this post?')"
+    >
+      <button
+        class="px-4 py-2 rounded-md bg-red-600 text-white hover:bg-red-700 transition"
+      >
+        Delete
+      </button>
+    </form>
+  </div>
+</div>
+
+<%- include("partials/footer") %>
