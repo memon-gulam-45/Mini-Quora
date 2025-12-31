@@ -15,18 +15,33 @@ app.use(express.static(path.join(__dirname, "public")));
 let posts = [
   {
     id: uuidv4(),
-    username: "apnacollege",
-    content: "I love coding",
+    username: "elonmusk",
+    content:
+      "Some people don’t like change, but you need to embrace change if the alternative is disaster.",
   },
   {
     id: uuidv4(),
-    username: "ashrafi",
-    content: "Learning MERN Stack",
+    username: "sundarpichai",
+    content:
+      "A person who is happy is not because everything is right in his life, but because his attitude towards everything is right.",
   },
   {
     id: uuidv4(),
-    username: "naaz",
-    content: "Ashrafi loves her",
+    username: "satyanadella",
+    content:
+      "Our industry does not respect tradition — it only respects innovation.",
+  },
+  {
+    id: uuidv4(),
+    username: "markzuckerberg",
+    content:
+      "The biggest risk is not taking any risk in a world that’s changing really quickly.",
+  },
+  {
+    id: uuidv4(),
+    username: "billgates",
+    content:
+      "Success is a lousy teacher. It seduces smart people into thinking they can’t lose.",
   },
 ];
 
