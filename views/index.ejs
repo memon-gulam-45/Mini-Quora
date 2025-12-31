@@ -1,13 +1,32 @@
-<%- include("partials/header", { title: "All Posts" }) %>
-
+<%- include("partials/header", { title: "All Posts" }) %> <% if (posts.length
+=== 0) { %>
+<!-- Empty State -->
+<div class="bg-white p-10 rounded-lg shadow-sm text-center">
+  <h2 class="text-xl font-semibold mb-2">No posts yet</h2>
+  <p class="text-gray-600 mb-4">
+    Start the conversation by creating your first post.
+  </p>
+  <a
+    href="/posts/new"
+    class="inline-block bg-primary text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
+  >
+    Create Post
+  </a>
+</div>
+<% } else { %>
+<!-- Feed -->
 <div class="space-y-6">
   <% posts.forEach(post => { %>
   <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
     <h3 class="font-semibold text-gray-900">@<%= post.username %></h3>
-    <p class="text-gray-700 mt-2"><%= post.content %></p>
 
-    <div class="flex items-center gap-4 mt-4 text-sm">
-      <a href="/posts/<%= post.id %>" class="text-primary hover:underline">
+    <p class="text-gray-700 mt-2 line-clamp-3"><%= post.content %></p>
+
+    <div class="flex flex-wrap items-center gap-4 mt-4 text-sm text-gray-600">
+      <a
+        href="/posts/<%= post.id %>"
+        class="text-primary font-medium hover:underline"
+      >
         View
       </a>
 
@@ -29,5 +48,4 @@
   </div>
   <% }) %>
 </div>
-
-<%- include("partials/footer") %>
+<% } %> <%- include("partials/footer") %>
