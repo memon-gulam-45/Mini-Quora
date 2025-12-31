@@ -1,22 +1,33 @@
-<%- include("partials/header.ejs", {title: "All Posts"}) %>
-<h1>Quora Posts</h1>
-<% for(post of posts){ %>
-<div class="post">
-  <h3 class="user">@<%= post.username %></h3>
-  <h4 class="content"><%= post.content %></h4>
-  <br />
-  <a href="http://localhost:8080/posts/<%= post.id %>">See in Detail</a>
-  <a href="http://localhost:8080/posts/<%= post.id %>/edit">Edit</a>
-  <form
-    method="POST"
-    action="http://localhost:8080/posts/<%=post.id%>?_method=DELETE"
-  >
-    <button>Delete Post</button>
-  </form>
+<%- include("partials/header", { title: "All Posts" }) %>
+
+<div class="space-y-6">
+  <% posts.forEach(post => { %>
+  <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+    <h3 class="font-semibold text-gray-900">@<%= post.username %></h3>
+    <p class="text-gray-700 mt-2"><%= post.content %></p>
+
+    <div class="flex items-center gap-4 mt-4 text-sm">
+      <a href="/posts/<%= post.id %>" class="text-primary hover:underline">
+        View
+      </a>
+
+      <a
+        href="/posts/<%= post.id %>/edit"
+        class="text-blue-600 hover:underline"
+      >
+        Edit
+      </a>
+
+      <form
+        method="POST"
+        action="/posts/<%= post.id %>?_method=DELETE"
+        onsubmit="return confirm('Delete this post?')"
+      >
+        <button class="text-red-600 hover:underline">Delete</button>
+      </form>
+    </div>
+  </div>
+  <% }) %>
 </div>
-<% } %>
 
-<br /><br />
-<a href="http://localhost:8080/posts/new">Create a New Post</a>
-
-<%- include("partials/footer.ejs") %>
+<%- include("partials/footer") %>

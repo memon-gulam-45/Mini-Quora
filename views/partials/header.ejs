@@ -4,15 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title || "Mini Quora" %></title>
-    <link rel="stylesheet" href="/style.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <header class="site-header">
-      <h1>Mini Quora</h1>
-      <nav>
-        <a href="/posts">Home</a>
-        <a href="/posts/new">New Post</a>
-      </nav>
+
+  <body class="bg-gray-100 text-gray-800">
+    <header class="bg-primary">
+      <div
+        class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-xl font-semibold">Mini Quora</h1>
+        <nav class="space-x-4">
+          <a href="/posts" class="hover:underline">Home</a>
+          <a
+            href="/posts/new"
+            class="bg-white text-primary px-3 py-1 rounded-md font-medium hover:bg-gray-100"
+          >
+            New Post
+          </a>
+        </nav>
+      </div>
     </header>
 
-    <main class="container">
+    <main class="max-w-4xl mx-auto px-4 py-8">
