@@ -3,8 +3,6 @@
 **Mini Quora** is a Quora-style posts application built using **Node.js**, **Express**, and **EJS**, designed to demonstrate **CRUD operations** and **RESTful API principles**.  
 The project features a **modern, responsive UI built with Tailwind CSS** and follows clean MVC-style structuring using EJS partials.
 
-🔗 **Live Demo:**  
-👉 https://mini-quora-7yc7.onrender.com
 
 ---
 
